@@ -1,12 +1,13 @@
-import { DocumentIcon } from '@sanity/icons'
+import {
+  DocumentIcon
+} from '@sanity/icons'
 
 export default {
   name: 'post',
   title: 'Post',
   icon: DocumentIcon,
   type: 'document',
-  fields: [
-    {
+  fields: [{
       name: 'title',
       title: 'Title',
       type: 'string'
@@ -24,7 +25,9 @@ export default {
       name: 'author',
       title: 'Author',
       type: 'reference',
-      to: {type: 'author'}
+      to: {
+        type: 'author'
+      }
     },
     {
       name: 'mainImage',
@@ -38,7 +41,12 @@ export default {
       name: 'categories',
       title: 'Categories',
       type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}]
+      of: [{
+        type: 'reference',
+        to: {
+          type: 'category'
+        }
+      }]
     },
     {
       name: 'publishedAt',
@@ -48,7 +56,8 @@ export default {
     {
       name: 'body',
       title: 'Body',
-      type: 'blockContent'
+      // type: 'blockContent'
+      type: 'markdown'
     }
   ],
 
@@ -59,7 +68,9 @@ export default {
       media: 'mainImage'
     },
     prepare(selection) {
-      const {author} = selection
+      const {
+        author
+      } = selection
       return Object.assign({}, selection, {
         subtitle: author && `by ${author}`
       })

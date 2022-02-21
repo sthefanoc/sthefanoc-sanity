@@ -1,4 +1,6 @@
-import client, { previewClient } from './sanity'
+import client, {
+  previewClient,
+} from './sanity'
 
 const getUniquePosts = (posts) => {
   const slugs = new Set()
@@ -30,8 +32,9 @@ export async function getPreviewPostBySlug(slug) {
     `*[_type == "post" && slug.current == $slug] | order(publishedAt desc){
       ${postFields}
       body
-    }`,
-    { slug }
+    }`, {
+      slug
+    }
   )
   return data[0]
 }
@@ -53,7 +56,7 @@ export async function getPostAndMorePosts(slug, preview) {
   const curClient = getClient(preview)
   const [post, morePosts] = await Promise.all([
     curClient.fetch(
-        `*[_type == "post" && slug.current == $slug] | order(_updatedAt desc) {
+      `*[_type == "post" && slug.current == $slug] | order(_updatedAt desc) {
         ${postFields}
         body,
         'comments': *[
@@ -66,17 +69,22 @@ export async function getPostAndMorePosts(slug, preview) {
           comment, 
           _createdAt
         }
-      }`,
-        { slug }
-      )
-      .then((res) => res?.[0]),
+      }`, {
+        slug
+      }
+    )
+    .then((res) => res ? . [0]),
     curClient.fetch(
       `*[_type == "post" && slug.current != $slug] | order(publishedAt desc, _updatedAt desc){
         ${postFields}
         body,
-      }[0...2]`,
-      { slug }
+      }[0...2]`, {
+        slug
+      }
     ),
   ])
-  return { post, morePosts: getUniquePosts(morePosts) }
+  return {
+    post,
+    morePosts: getUniquePosts(morePosts)
+  }
 }
