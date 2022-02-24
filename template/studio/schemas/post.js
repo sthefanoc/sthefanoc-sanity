@@ -10,12 +10,12 @@ export default {
   fields: [{
       name: 'title',
       title: 'Title',
-      type: 'string'
+      type: 'localeString'
     },
     {
       name: 'slug',
       title: 'Slug',
-      type: 'slug',
+      type: 'localeSlug',
       options: {
         source: 'title',
         maxLength: 96
@@ -52,18 +52,22 @@ export default {
       name: 'publishedAt',
       title: 'Published at',
       type: 'datetime'
+    }, {
+      name: 'excerpt',
+      title: 'Excerpt',
+      type: 'localeString'
     },
     {
       name: 'body',
       title: 'Body',
       // type: 'blockContent'
-      type: 'markdown'
+      type: 'localeMarkdown'
     }
   ],
 
   preview: {
     select: {
-      title: 'title',
+      title: 'title.en',
       author: 'author.name',
       media: 'mainImage'
     },

@@ -1,6 +1,9 @@
 import client, {
   previewClient,
 } from './sanity'
+import {
+  i18n
+} from '../next.config'
 
 const getUniquePosts = (posts) => {
   const slugs = new Set()
@@ -20,7 +23,7 @@ const postFields = `
   title,
   'date': publishedAt,
   excerpt,
-  'slug': slug.current,
+  'slug': slug,
   'coverImage': mainImage,
   'author': author->{name, 'picture': image.asset->url},
 `
@@ -29,7 +32,7 @@ const getClient = (preview) => (preview ? previewClient : client)
 
 export async function getPreviewPostBySlug(slug) {
   const data = await getClient(true).fetch(
-    `*[_type == "post" && slug.current == $slug] | order(publishedAt desc){
+    `*[_type == "post" && slug.current.en == $slug] | order(publishedAt desc){
       ${postFields}
       body
     }`, {
@@ -40,7 +43,8 @@ export async function getPreviewPostBySlug(slug) {
 }
 
 export async function getAllPostsWithSlug() {
-  const data = await client.fetch(`*[_type == "post"]{ 'slug': slug.current }`)
+  const data = await client.fetch(`*[_type == "post"]{ 'slug': slug }`)
+
   return data
 }
 
@@ -56,7 +60,7 @@ export async function getPostAndMorePosts(slug, preview) {
   const curClient = getClient(preview)
   const [post, morePosts] = await Promise.all([
     curClient.fetch(
-      `*[_type == "post" && slug.current == $slug] | order(_updatedAt desc) {
+      `*[_type == "post" && slug['en'].current == $slug || slug['pt'].current == $slug] | order(_updatedAt desc) {
         ${postFields}
         body,
         'comments': *[
@@ -75,7 +79,7 @@ export async function getPostAndMorePosts(slug, preview) {
     )
     .then((res) => res ? . [0]),
     curClient.fetch(
-      `*[_type == "post" && slug.current != $slug] | order(publishedAt desc, _updatedAt desc){
+      `*[_type == "post" && (slug['en'].current != $slug || slug['pt'].current != $slug)] | order(publishedAt desc, _updatedAt desc){
         ${postFields}
         body,
       }[0...2]`, {

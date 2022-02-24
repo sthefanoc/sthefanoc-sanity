@@ -16,7 +16,7 @@ import Form from '../../components/form'
 
 export default function Post({ post, morePosts, preview }) {
   const router = useRouter()
-  if (!router.isFallback && !post?.slug) {
+  if (!router.isFallback && !post?.slug[router.locale].current) {
     return <ErrorPage statusCode={404} />
   }
   return (
@@ -30,17 +30,17 @@ export default function Post({ post, morePosts, preview }) {
             <article>
               <Head>
                 <title>
-                  {post.title} | Next.js Blog Example with {CMS_NAME}
+                  {post.title[router.locale]} | Next.js Blog Example with {CMS_NAME}
                 </title>
                 {/* <meta property="og:image" content={post.ogImage.url} /> */}
               </Head>
               <PostHeader
-                title={post.title}
+                title={post.title[router.locale]}
                 coverImage={post.coverImage}
                 date={post.date}
                 author={post.author}
               />
-              <PostBody content={post.body} />
+              <PostBody content={post.body[router.locale]} />
             </article>
 
             <Comments comments={post.comments} />
@@ -55,7 +55,7 @@ export default function Post({ post, morePosts, preview }) {
   )
 }
 
-export async function getStaticProps({ params, preview = false }) {
+export async function getStaticProps({ params, preview = false, }) {
   const data = await getPostAndMorePosts(params.slug, preview)
   return {
     props: {
@@ -73,7 +73,7 @@ export async function getStaticPaths() {
     paths:
       allPosts?.map((post) => ({
         params: {
-          slug: post.slug,
+          slug: post.slug.en.current,
         },
       })) || [],
     fallback: true,
