@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router'
+import { useEffect } from 'react'
 import ErrorPage from 'next/error'
 import Container from '../../components/container'
 import PostBody from '../../components/post-body'
@@ -13,8 +14,18 @@ import PostTitle from '../../components/post-title'
 import Head from 'next/head'
 import { CMS_NAME } from '../../lib/constants'
 import Form from '../../components/form'
+// import { } from 'prismjs/components/prism-javascript'
+// import { Prism } from 'react-syntax-highlighter'
+
+const prism = require("prismjs")
+require('prismjs/components/prism-python')
+// require('prismjs/components/prism-javascript');
 
 export default function Post({ post, morePosts, preview }) {
+  console.log('prism', prism)
+  useEffect(() => {
+    prism.highlightAll();
+  }, []);
   const router = useRouter()
   if (!router.isFallback && !post?.slug[router.locale].current) {
     return <ErrorPage statusCode={404} />

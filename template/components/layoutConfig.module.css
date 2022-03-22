@@ -1,0 +1,104 @@
+.styleSwitcher {
+    position: fixed;
+    top: 12vh;
+    right: 0;
+    z-index: 10;
+    background-color: var(--template-bg-color-01);
+    color: var(--template-font-color-01);
+    padding: 1rem;
+    padding-top: 0.3rem;
+    border: 1px solid var(--template-bg-color-02);
+    border-right: none;
+    border-radius: 0 0 0 0.4rem;
+    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+}
+
+.styleSwitcher.open {
+    transform: translateX(0%);
+    -webkit-transform: translateX(0%);
+}
+
+.styleSwitcher h5 {
+    font-size: 1rem;
+    color: var(--template-font-color-02);
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid var(--template-bg-color-03);
+
+}
+
+.styleSwitcher ul {
+    margin: 0;
+    padding: 0;
+    display: block;
+    margin-bottom: 5px;
+    list-style: none;
+}
+
+.styleSwitcher ul li {
+    display: inline-block;
+}
+
+.styleSwitcher ul li button {
+    padding: 0;
+    border: none;
+    background: none;
+    height: 1.7rem;
+    width: 1.7rem;
+    display: block;
+    border-radius: 50%;
+    cursor: pointer;
+    text-decoration: none;
+    margin-right: 0.1rem;
+}
+
+.toggleStyleSwitcher {
+    position: absolute;
+    height: 2rem;
+    width: 2rem;
+    background: var(--template-bg-color-01);
+    left: -2.1rem;
+    top: -0.1px;
+    border: 1px solid var(--template-bg-color-02);
+    border-right: none;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px 0 0 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.toggleStyleSwitcher svg {
+    height: 1.2rem;
+    width: 1.2rem;
+    animation: spin infinite 3s linear;
+    color: var(--template-font-color-01);
+}
+
+.selected {
+    border: '10px solid var(--template-font-color-01)'
+}
+
+/* .toggleStyleSwitcher svg.spin {
+    animation: spin infinite 5s linear;
+} */
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.styleSwitcher label {
+    margin-right: 0.3rem;
+    cursor: pointer;
+}

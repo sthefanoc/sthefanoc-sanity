@@ -1,0 +1,27 @@
+.layout {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.layout header {
+    height: 10vh;
+}
+
+.layout main {
+    /* flex: 8; */
+    padding: 2rem;
+}
+
+@media (max-width: 900px) {
+    .layout header {
+        /* flex: 0; */
+        /* background-color: aquamarine; */
+        height: 15vh;
+    }
+
+    .layout main {
+        width: 100%;
+        padding: 0rem;
+    }
+}

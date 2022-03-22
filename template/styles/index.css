@@ -1,10 +1,102 @@
 /* purgecss start ignore */
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
 article a {
     color: rgb(49, 49, 182);
     text-decoration: underline;
-}
+} */
 /* purgecss end ignore */
-@tailwind utilities;
+/* @tailwind utilities; */
 
+
+
+/*
+ * [Modified] Modern CSS Reset
+ * @link https://github.com/kevin-powell/css-challenges/blob/main/src/sass/_reset.scss
+*/
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+    min-height: 100vh;
+    font-family: sans-serif;
+    font-size: 100%;
+    line-height: 1.5;
+    text-rendering: optimizeSpeed;
+}
+
+/* Make images easier to work with */
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    html {
+        scroll-behavior: initial;
+    }
+}
+
+/* Colors */
+body {
+    background-color: var(--template-bg-color-01);
+    color: var(--template-font-color-01);
+}
+
+:root {
+    --template-color-01: #77BEF5;
+    --template-color-02: #2198F3;
+    --template-color-03: #0367B4;
+    --template-color-04: #FFC372;
+    --template-color-05: #FF9A13;
+    --template-bg-color-01: #fdf9ff;
+    --template-bg-color-02: #e8dfec;
+    --template-bg-color-03: #f2f2fc;
+    --template-font-color-01: #000;
+    --template-font-color-02: #302e4d;
+}

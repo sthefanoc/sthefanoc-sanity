@@ -17,12 +17,12 @@
   @apply text-2xl mt-8 mb-4 leading-snug;
 }
 
-.markdown code{
-  background-color: #ededed;
+.markdown code {
+  /* background-color: #ededed; */
 }
 
-.markdown pre{
-  background-color: #ededed;
+.markdown pre {
+  /* background-color: #ededed; */
   padding: 1rem 1rem;
-  border-radius: 0.3rem;
+  border-radius: 0.6rem;
 }

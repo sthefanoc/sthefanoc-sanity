@@ -3,36 +3,40 @@ import MoreStories from '../components/more-stories'
 import HeroPost from '../components/hero-post'
 import Intro from '../components/intro'
 import Layout from '../components/layout'
+import Header from '../components/header'
 import { getAllPostsForHome } from '../lib/api'
 import Head from 'next/head'
 import Link from 'next/link'
-import { CMS_NAME } from '../lib/constants'
 import { useRouter } from 'next/router'
+// import en from '../locales/en'
+// import { HeaderTranslations as en } from '../locales/en'
+// import { HeaderTranslations as en } from '../locales/en'
+// import { HeaderTranslations as en } from '../locales/en'
+
+import { Hero, Features, Portfolio, Resume, Testimonial, Blog, Contact } from '../components/Home'
 
 export default function Index({ allPosts, preview }) {
   const { locale, locales } = useRouter();
   const heroPost = allPosts[0]
   const morePosts = allPosts.slice(1)
+  // const t = locale === 'pt' ? pt : (locale === 'fr' ? fr : en)
   return (
     <>
-      <h1>Current locale is: {locale}</h1>
-      <ul>
-        {locales.map(loc => (
-          <li key={loc}>
-            <Link href="/" locale={loc}>
-              {loc}
-            </Link>
-          </li>
-        ))}
-      </ul>
       <Layout preview={preview}>
         <Head>
-          <title>Next.js Blog Example with {CMS_NAME}</title>
+          <title>SthefanoC.com | Full Stack Developer</title>
         </Head>
-        <Container>
+
+        <Hero />
+        <Features />
+        <Portfolio />
+        <Resume />
+        <Testimonial />
+        <Blog />
+        <Contact />
+
+        {/* <Container>
           <Intro />
-          {console.log('hero', heroPost)}
-          {console.log('locale', locale)}
           {heroPost && (
             <HeroPost
               title={heroPost.title[locale]}
@@ -44,7 +48,7 @@ export default function Index({ allPosts, preview }) {
             />
           )}
           {morePosts.length > 0 && <MoreStories posts={morePosts} />}
-        </Container>
+        </Container> */}
       </Layout>
     </>
   )

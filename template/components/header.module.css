@@ -1,0 +1,217 @@
+.flex {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: var(--template-bg-color-01);
+    border: 1px solid var(--template-bg-color-02);
+    box-shadow: 10px 10px 15px var(--template-bg-color-02)
+}
+
+.flex .logo {
+    /* height: 60%; */
+    flex: 2;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    justify-self: center;
+    align-self: center;
+    position: relative;
+    margin-left: 3rem;
+}
+
+.flex .logo a {
+    font-family: "Rubik", sans-serif;
+    text-decoration: none;
+    font-size: 1.8rem;
+    color: var(--template-font-color-01);
+    transition: all .5s ease-in-out;
+    position: relative;
+    /* justify-self: flex-start; */
+    /* margin-right: auto; */
+
+}
+
+.flex .logo a:hover {
+    transform: scale(1.1);
+}
+
+.flex .logo a::before {
+    content: "";
+    height: 1rem;
+    width: 1rem;
+    position: absolute;
+    top: 0;
+    left: -0.5rem;
+    border-top: 0.2rem solid var(--template-color-02);
+    border-left: 0.2rem solid var(--template-color-02);
+}
+
+.flex .logo a::after {
+    content: "";
+    height: 1rem;
+    width: 1rem;
+    position: absolute;
+    bottom: 0;
+    right: -0.5rem;
+    border-right: 0.2rem solid var(--template-color-02);
+    border-bottom: 0.2rem solid var(--template-color-02);
+}
+
+.flex .links {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    font-weight: bold;
+    align-self: center;
+    align-items: center;
+    height: 100%;
+    flex: 4;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex .links li {
+    transition: all .4s ease-in-out;
+    /* opacity: 0.7; */
+    padding: 1rem;
+    color: var(--template-font-color-01);
+}
+
+.flex .links li:last-child {
+    background-color: var(--template-color-02);
+    font-weight: bold;
+    opacity: 1;
+    color: #fff;
+    border-radius: 1.5rem;
+    margin-left: auto;
+    margin-right: 2rem;
+    padding: 0.5rem 2rem 0.5rem 2rem;
+    text-transform: uppercase;
+}
+
+.flex .links li:last-child:hover {
+    opacity: 1;
+    color: #fff;
+    transform: scale(1.1);
+    text-decoration: none
+}
+
+.flex .links li:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    text-decoration: underline;
+    opacity: 1;
+    color: var(--template-color-01);
+}
+
+.flex .links .link {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex .links .link .text {
+    align-self: center;
+}
+
+.flex .links svg {
+    height: 2rem;
+    margin-right: 1rem;
+}
+
+.burger {
+    display: none;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--template-color-02);
+    margin: 5px;
+    transition: all .4s ease-in-out;
+}
+
+.burger:hover div {
+    background-color: var(--template-color-03);
+    /* transform: scale(1.1); */
+}
+
+
+
+@media (max-width: 767px) {
+    .flex {
+        flex-direction: row;
+        overflow-x: hidden;
+        justify-content: space-around;
+        box-shadow: 1px 1px 10px var(--template-bg-color-02)
+    }
+
+    .flex .logo a {
+        font-size: 1.5rem;
+    }
+
+    .flex .links {
+        position: absolute;
+        background-color: var(--template-bg-color-01);
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        top: 0vh;
+        margin: 0;
+        justify-content: space-around;
+        transition: all .5s ease-in-out;
+    }
+
+    .active {
+        display: flex !important;
+    }
+
+    .flex .links ul {
+        font-size: 2rem;
+        padding: 0rem 0rem;
+    }
+
+    .flex .links li {
+        font-size: 1.5rem;
+    }
+
+    .flex .links li:last-child {
+        margin: 0 0;
+
+    }
+
+    .burger {
+        display: block;
+        padding: 2.3rem 0 2.3rem 0;
+        margin-right: 2rem;
+        cursor: pointer;
+        z-index: 10;
+        position: relative;
+
+    }
+
+    .burger div {
+        transition: all .6s ease-in-out;
+    }
+
+    .open1 {
+        transform: rotate(135deg);
+        position: absolute;
+        right: 0;
+        top: 2.3rem;
+    }
+
+    .open2 {
+        transform: rotate(-135deg);
+        background-color: gray;
+        left: 0;
+        bottom: 2.3rem;
+    }
+
+    .open3 {
+        transform: rotate(-180deg);
+        display: none;
+    }
+}

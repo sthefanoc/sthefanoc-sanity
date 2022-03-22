@@ -1,0 +1,16 @@
+export default {
+  preTitle: 'Welcome to my work',
+  presentation: 'Hi, I\'m',
+  article: 'a',
+  words: ['Full Stack Developer.', 'Growth Expert.', 'Software Engineer.', 'Problem Solver.'],
+  shortPresentation: 'I use code to solve real world problems. ReactJs for interfaces, Python for Automation and anything else that is necessary to solve a problem.',
+  myWork: 'My work',
+  myContent: 'My content',
+  githubTooltip: 'Github: the code I wrote',
+  linkedinTooltip: 'Linkedin: where I worked',
+  portfolioTooltip: 'Portfolio: my projects',
+  devToTooltip: 'Dev.to: what I wrote about code',
+  twitterTooltip: 'Twitter',
+  mediumTooltip: 'Medium: what I wrote about marketing',
+  blogTooltip: 'Blog: what I wrote about all subjects',
+};
