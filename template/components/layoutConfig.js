@@ -4,8 +4,6 @@ import { faCog } from '@fortawesome/free-solid-svg-icons';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router'
 
-
-
 const layoutConfig = () => {
     const [isConfigOpen, setConfigOpen] = useState(0);
     const [themeColor, setThemeColor] = useState('pink');
@@ -13,8 +11,6 @@ const layoutConfig = () => {
     const [selectedLanguage, setSelectedLanguage] = useState('EN');
     const { locale } = useRouter();
     const router = useRouter();
-
-    // alert(locale)
 
     const colorScheme = {
         pink: ["#F56C82", "#EC1839", "#980018", "#88E565", "#4AD516"],
@@ -58,6 +54,23 @@ const layoutConfig = () => {
         }
     }
 
+    const changeSelectedLanguage = (language) => {
+        Array.from(document.querySelectorAll('.set-language')).forEach(item => {
+            let itemValue = item.value ? item.value.toLowerCase() : ''
+            if (itemValue === language) {
+                console.log('equal', language, item.value)
+                item.checked = true
+            } else {
+                console.log('not equal', language, item.value)
+                item.checked = false
+            }
+        })
+        setCookie(language)
+    }
+
+    const setCookie = (locale) => {
+        document.cookie = `NEXT_LOCALE=${locale}; expires=Fri, 31 Dec 9999 23:59:59 GMT`
+    }
 
     useEffect(() => {
         setConfigOpen(Number(retrieveFromLocalStorage('isConfigOpen', 0)))
@@ -87,11 +100,29 @@ const layoutConfig = () => {
     useEffect(() => {
         changeTemplateTheme(themeSkin)
         localStorage.setItem('sthefanoc.com/themeSkin', themeSkin)
+        // document.querySelectorAll('.set-language').forEach(item=>)
+        Array.from(document.querySelectorAll('.body-skin')).forEach(i => {
+            if (i.value == themeSkin) {
+                i.checked = true
+            } else {
+                i.checked = false
+            }
+        })
     }, [themeSkin])
 
     useEffect(() => {
         localStorage.setItem('sthefanoc.com/selectedLanguage', selectedLanguage)
+        changeSelectedLanguage(selectedLanguage)
     }, [selectedLanguage])
+
+    useEffect(() => {
+        // alert(selectedLanguage)
+        // alert(locale)
+        console.log('selectedLanguage', selectedLanguage)
+        console.log('locale', locale)
+        // router.push('/', '/', { locale: locale })
+    }, [])
+
 
     return (
         <div id='styleSwitcher' className={styles.styleSwitcher} >
@@ -114,7 +145,7 @@ const layoutConfig = () => {
                         className="body-skin"
                         name="body-style"
                         value="light"
-                        defaultChecked="true"
+                        defaultChecked={themeSkin == 'light' ? "true" : "false"}
                         onClick={() => setThemeSkin('light')}
                     />
                     Light
@@ -125,7 +156,7 @@ const layoutConfig = () => {
                         className="body-skin"
                         name="body-style"
                         value="dark"
-                        // defaultChecked="false" 
+                        defaultChecked={themeSkin == 'dark' ? "true" : "false"}
                         onClick={() => setThemeSkin('dark')}
                     />
                     Dark

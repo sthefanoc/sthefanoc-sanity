@@ -36,20 +36,22 @@
     transition: 0.3s all ease-in-out;
     cursor: pointer;
     color: var(--template-font-color-01);
-    /* opacity: 0.3; */
+    opacity: 0.7;
     background: linear-gradient(145deg, var(--template-font-color-02) var(--template-font-color-01));
     /* box-shadow: 1px 1px 8px 0px var(--template-font-color-02), -1px -1px 8px 0px var(--template-font-color-01); */
 }
 
 .last_button {
-    background-color: var(--template-color-01);
-    color: #000;
+    background-color: var(--template-color-04);
+    opacity: 1;
+    color: #fff;
 }
 
 .btn_shadow:hover {
     background: var(--template-color-02);
     color: #fff;
     transform: translateY(-10px);
+    opacity: 1;
     /* transform: scale(1.1); */
 }
 
