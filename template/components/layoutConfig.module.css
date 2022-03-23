@@ -58,10 +58,10 @@
 
 .toggleStyleSwitcher {
     position: absolute;
-    height: 2rem;
-    width: 2rem;
+    height: 2.5rem;
+    width: 2.5rem;
     background: var(--template-bg-color-01);
-    left: -2.1rem;
+    left: -2.5rem;
     top: -0.1px;
     border: 1px solid var(--template-bg-color-02);
     border-right: none;
@@ -74,8 +74,8 @@
 }
 
 .toggleStyleSwitcher svg {
-    height: 1.2rem;
-    width: 1.2rem;
+    height: 2rem;
+    width: 2rem;
     animation: spin infinite 3s linear;
     color: var(--template-font-color-01);
 }
@@ -84,9 +84,6 @@
     border: '10px solid var(--template-font-color-01)'
 }
 
-/* .toggleStyleSwitcher svg.spin {
-    animation: spin infinite 5s linear;
-} */
 
 @keyframes spin {
     from {

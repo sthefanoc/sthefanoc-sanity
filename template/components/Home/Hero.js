@@ -26,7 +26,7 @@ function Hero() {
         <section className={styles.hero} id='home'>
             <div className={`${styles.container} ${styles.f_flex} ${styles.top}`}>
                 <div className={`${styles.left} ${styles.top}`}>
-                    <h3>{t.preTitle}</h3>
+                    <h4>{t.preTitle}</h4>
                     <h1>
                         {t.presentation} <span>Sthefano Carvalho</span>
                     </h1>
@@ -64,26 +64,28 @@ function Hero() {
                         </div>
                         <div className={styles.col_1}>
                             <h4>My content</h4>
-                            <a href="https://dev.to/sthefanoc" target="blank" data-tip={t.devToTooltip}>
-                                <button className={styles.btn_shadow}>
-                                    <FontAwesomeIcon icon={faDev} />
-                                </button>
-                            </a>
-                            <a href="https://twitter.com/intent/user?screen_name=Sthefanoc_Dev" target="blank" data-tip={t.twitterTooltip}>
-                                <button className={styles.btn_shadow}>
-                                    <FontAwesomeIcon icon={faTwitter} />
-                                </button>
-                            </a>
-                            <a href="https://medium.com/@sthefanoc" target="blank" data-tip={t.mediumTooltip}>
-                                <button className={styles.btn_shadow}>
-                                    <FontAwesomeIcon icon={faMedium} />
-                                </button>
-                            </a>
-                            <Link href='#blog'>
-                                <button className={`${styles.btn_shadow} ${styles.last_button}`} data-tip={t.blogTooltip}>
-                                    <FontAwesomeIcon icon={faFileAlt} />
-                                </button>
-                            </Link>
+                            <div className={styles.button}>
+                                <a href="https://dev.to/sthefanoc" target="blank" data-tip={t.devToTooltip}>
+                                    <button className={styles.btn_shadow}>
+                                        <FontAwesomeIcon icon={faDev} />
+                                    </button>
+                                </a>
+                                <a href="https://twitter.com/intent/user?screen_name=Sthefanoc_Dev" target="blank" data-tip={t.twitterTooltip}>
+                                    <button className={styles.btn_shadow}>
+                                        <FontAwesomeIcon icon={faTwitter} />
+                                    </button>
+                                </a>
+                                <a href="https://medium.com/@sthefanoc" target="blank" data-tip={t.mediumTooltip}>
+                                    <button className={styles.btn_shadow}>
+                                        <FontAwesomeIcon icon={faMedium} />
+                                    </button>
+                                </a>
+                                <Link href='#blog'>
+                                    <button className={`${styles.btn_shadow} ${styles.last_button}`} data-tip={t.blogTooltip}>
+                                        <FontAwesomeIcon icon={faFileAlt} />
+                                    </button>
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </div>

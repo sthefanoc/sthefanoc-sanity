@@ -13,7 +13,7 @@ import { useRouter } from 'next/router'
 // import { HeaderTranslations as en } from '../locales/en'
 // import { HeaderTranslations as en } from '../locales/en'
 
-import { Hero, Features, Portfolio, Resume, Testimonial, Blog, Contact } from '../components/Home'
+import { Hero, Features, Portfolio, Testimonial, Blog, Contact } from '../components/Home'
 
 export default function Index({ allPosts, preview }) {
   const { locale, locales } = useRouter();
@@ -30,7 +30,6 @@ export default function Index({ allPosts, preview }) {
         <Hero />
         <Features />
         <Portfolio />
-        <Resume />
         <Testimonial />
         <Blog />
         <Contact />

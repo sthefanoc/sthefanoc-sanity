@@ -1,23 +1,102 @@
+/* Utility */
+.container {
+  max-width: 95%;
+  margin: auto;
+
+}
+
+.top {
+  margin-top: 1rem;
+}
+
+.heading {
+  margin: 3rem 0;
+  text-align: center;
+}
+
+.heading h4 {
+  color: var(--template-color-02);
+  letter-spacing: 0.1rem;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.heading h2 {
+  font-size: 2rem;
+  color: var(--template-font-color-01);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    margin: 0 1rem;
+  }
+
+  .features {
+    color: red;
+  }
+}
+
+.btn_shadow {
+  /* padding: 18px 25px; */
+  /* border-radius: 6px; */
+  transition: 0.3s all ease;
+  cursor: pointer;
+  color: var(--template-bg-color-01);
+  transition: 0.5s;
+  /* background: linear-gradient(145deg, var(--template-bg-color-03), var(--template-bg-color-01)); */
+  background-color: var(--template-bg-color-03);
+  box-shadow: 0.4rem 0.4rem 0.5rem var(var(--template-bg-color-02)), -0.4rem -0.4rem 0.5rem var(--template-bg-color-01);
+  border-radius: 0.8rem;
+}
+
+.btn_shadow:hover {
+  background: var(--template-color-02);
+  color: #fff;
+  transform: translateY(-0.8rem);
+}
+
+
+/* Specific */
 .features .box {
-    padding: 50px;
-  }
-  .features .box h2 {
-    margin: 20px 0 20px 0;
-  }
-  .features .box p {
-    word-spacing: 2px;
-    transition: 0.5s;
-  }
-  .features .box i {
-    font-size: 30px;
-    margin-top: 20px;
-    transition: 0.5s;
-    opacity: 0;
-  }
-  .features .box:hover p {
-    color: white;
-  }
-  .features .box:hover i {
-    color: white;
-    opacity: 1;
-  }
+  /* padding: 50px; */
+  padding: 2rem;
+  border: 0.1rem solid var(--template-bg-color-02);
+}
+
+.features .box h2 {
+  margin: 20px 0 20px 0;
+  color: var(--template-font-color-01);
+}
+
+.features .box p {
+  word-spacing: 2px;
+  transition: 0.5s;
+  color: var(--template-font-color-01);
+}
+
+.features .box svg {
+  color: var(--template-font-color-01);
+  color: var(--template-color-03);
+  height: 2.5rem;
+  margin-top: 20px;
+  transition: 0.5s;
+  opacity: 0.7;
+}
+
+.features .box a svg {
+  height: 1.5rem;
+}
+
+.features .box:hover h2,
+.features .box:hover p,
+.features .box:hover svg {
+  color: white;
+  opacity: 1;
+}

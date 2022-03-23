@@ -8,6 +8,7 @@
 .d_flex {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .f_flex {
@@ -71,11 +72,12 @@
     position: relative;
 }
 
-.hero h3 {
+.hero h4 {
     font-weight: 100;
     letter-spacing: 0.2rem;
+    font-size: 1rem;
     text-transform: uppercase;
-    color: var(--template-font-color-02);
+    color: var(--template-color-02);
 }
 
 .hero h1 {
@@ -152,21 +154,99 @@
     width: 25vw;
 }
 
+@media (max-width: 910px) {}
+
+
 @media (max-width: 768px) {
 
     .hero .right,
     .hero .left {
         width: 100%;
-        margin-left: 20px;
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        /* margin: 0 0.5rem; */
     }
 
     .hero .f_flex {
         flex-direction: column;
         flex-direction: column-reverse;
+        align-content: center;
+        justify-content: center;
+    }
+
+    .hero .d_flex {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .button {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+
+    }
+
+    .col_1 h4 {
+        text-align: center;
+
+    }
+
+    .hero_btn button {
+        margin-right: 0;
     }
 
     .hero .right_img {
+        width: 80%;
+        height: 48vh;
+        margin-top: 1.5rem;
+        margin-right: 1rem;
+        margin-left: 2.3rem;
+        margin-bottom: 2rem;
+    }
+
+    .hero .right_img img {
+        position: absolute;
+        /* margin: -1rem 0 1rem 0.5rem; */
+        right: 1rem;
+        left: 2.3rem;
+        top: -0.5rem;
+        padding-top: 1rem;
+        width: 70%;
+    }
+
+    .hero .left {
+        /* background-color: red; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        /* width: 80%; */
         width: 100%;
-        height: 54vh;
+        margin: auto;
+    }
+
+    .hero h3 {
+        margin-bottom: 0.5rem;
+        font-size: 1rem;
+
+    }
+
+    .hero h1,
+    .hero h2 {
+        font-size: 2rem;
+        text-align: center;
+        margin: 0 1rem;
+    }
+
+    .hero h1 span,
+    .hero h2 span {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        text-align: center;
+        margin: 2rem 2rem 0 2rem;
     }
 }

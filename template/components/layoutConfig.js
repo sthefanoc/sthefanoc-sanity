@@ -84,9 +84,11 @@ const layoutConfig = () => {
         if (isConfigOpen) {
             document.querySelector('#styleSwitcher').style.transform = 'translateX(0%)'
             document.querySelector('#faCog').style.animation = ''
+            document.querySelector('#faCog').style.opacity = 1
         } else {
             document.querySelector('#styleSwitcher').style.transform = 'translateX(100%)'
             document.querySelector('#faCog').style.animation = 'spin infinite 3s linear'
+            document.querySelector('#faCog').style.opacity = 0.7
         }
         localStorage.setItem('sthefanoc.com/isConfigOpen', isConfigOpen)
     }, [isConfigOpen])

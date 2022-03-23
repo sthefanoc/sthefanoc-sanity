@@ -146,7 +146,7 @@
     }
 
     .flex .logo a {
-        font-size: 1.5rem;
+        font-size: 1.8rem;
     }
 
     .flex .links {
@@ -162,6 +162,7 @@
         margin: 0;
         justify-content: space-around;
         transition: all .5s ease-in-out;
+        z-index: 1;
     }
 
     .active {
