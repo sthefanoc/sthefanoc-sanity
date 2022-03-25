@@ -15,10 +15,11 @@
 }
 
 .heading h4 {
-  color: var(--template-color-02);
-  letter-spacing: 0.1rem;
-  font-weight: 400;
+  font-weight: 100;
+  letter-spacing: 0.2rem;
+  font-size: 1rem;
   text-transform: uppercase;
+  color: var(--template-color-05);
 }
 
 .heading h2 {
@@ -32,20 +33,7 @@
   grid-gap: 2rem;
 }
 
-@media (max-width: 768px) {
-  .grid {
-    grid-template-columns: 1fr;
-    margin: 0 1rem;
-  }
-
-  .features {
-    color: red;
-  }
-}
-
 .btn_shadow {
-  /* padding: 18px 25px; */
-  /* border-radius: 6px; */
   transition: 0.3s all ease;
   cursor: pointer;
   color: var(--template-bg-color-01);
@@ -65,8 +53,7 @@
 
 /* Specific */
 .features .box {
-  /* padding: 50px; */
-  padding: 2rem;
+  padding: 1rem;
   border: 0.1rem solid var(--template-bg-color-02);
 }
 
@@ -99,4 +86,48 @@
 .features .box:hover svg {
   color: white;
   opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .grid {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    grid-gap: 1rem;
+    margin: 0 1rem;
+    /* flex: 0 0 auto; */
+  }
+
+  .features .box {
+    padding: 0 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    min-width: 70vw;
+    min-height: 30vh;
+  }
+
+  .features .box:first-child {
+    /* background-color: red; */
+  }
+
+  .features .box h4 {
+    font-size: 2rem;
+    margin: 0 0.3rem;
+  }
+
+  .features .box p {
+    font-size: 1rem;
+    margin: 0 0.3rem
+  }
+
+  .features .box svg {
+    height: 1.8rem;
+    display: none;
+  }
+
+  .features .box a svg {
+    height: 1rem;
+    display: none;
+  }
 }

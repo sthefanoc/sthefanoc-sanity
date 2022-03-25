@@ -10,3 +10,7 @@ export {
     default as FeaturesTranslations
 }
 from './Features.js'
+export {
+    default as PortfolioTranslations
+}
+from './Portfolio.js'
