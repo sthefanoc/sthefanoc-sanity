@@ -66,15 +66,17 @@
 /* Specific */
 .Portfolio {
     position: relative;
+    margin-bottom: 4rem;
 }
 
 .Portfolio .box {
     border-radius: 0.5rem;
-    position: relative;
+    transition: all 0.3s ease-in-out;
 }
 
 .Portfolio .box:hover {
     background: none;
+    /* border: 1px solid var(--template-bg-color-02); */
     transform: translateY(-0);
 }
 
@@ -106,22 +108,27 @@
     font-weight: 500;
 }
 
-.Portfolio .arrow {
+
+.Portfolio .arrow svg {
     position: absolute;
-    right: 30px;
-    bottom: 11%;
+    height: 2rem;
+    right: 0;
+    top: 0;
     transform: rotate(-45deg);
     color: var(--template-color-03);
     opacity: 0;
     transition: 0.5s;
 }
 
-.Portfolio .title:hover .arrow {
+.Portfolio .box:hover .arrow svg {
+    transition: all 0.3s ease-in-out;
     opacity: 1;
+    transform: scale(1, 1);
 }
 
 .Portfolio h2 {
-    margin: 20px 0 20px 0;
+    margin: 1rem 1rem;
+
     color: var(--template-font-color-01);
     transition: all 0.3s ease-in-out;
 }
@@ -132,6 +139,85 @@
 
 .Portfolio .box:hover {
     color: var(--template-font-color-01);
+}
+
+.Portfolio .seeMore {
+    position: absolute;
+    margin-top: 2rem;
+    right: 3rem;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+    color: var(--template-color-03);
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.Portfolio .seeMore svg {
+    display: block;
+    height: 1.2rem;
+    margin-left: 0.3rem;
+    margin-top: 0.2rem;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    transform: rotate(-45deg)
+}
+
+.Portfolio .seeMore:hover {
+
+    transform: scale(1.2);
+    color: var(--template-color-02);
+}
+
+.Portfolio .seeMore:hover svg {
+    opacity: 1;
+    transform: rotate(0deg);
+
+}
+
+.Portfolio .seeLessContainer {
+    position: absolute;
+    margin-top: 2rem;
+
+    right: 3rem;
+    color: var(--template-color-03);
+    font-weight: bold;
+    text-decoration: underline;
+    display: flex;
+    flex-direction: row;
+}
+
+.Portfolio .seeLess,
+.Portfolio .seeAll {
+
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+    margin-left: 1rem;
+
+}
+
+.Portfolio .seeLess svg,
+.Portfolio .seeAll svg {
+    display: block;
+    height: 1.2rem;
+    margin-left: 0.3rem;
+    margin-top: 0.2rem;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    transform: rotate(-45deg)
+}
+
+.Portfolio .seeLess:hover,
+.Portfolio .seeAll:hover {
+
+    transform: scale(1.1);
+    color: var(--template-color-02);
+}
+
+.Portfolio .seeLess:hover svg,
+.Portfolio .seeAll:hover svg {
+    opacity: 1;
+    transform: rotate(0deg);
+
 }
 
 /*------------popup--------*/
@@ -166,7 +252,7 @@ body.activeModal {
     position: absolute;
     top: 12%;
     left: 8%;
-    height: 60vh;
+    height: 80vh;
     line-height: 1.4;
     background: var(--template-bg-color-03);
     padding: 1rem 2rem;
@@ -205,6 +291,7 @@ body.activeModal {
     padding: 0 6rem 0 3rem;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .modalText h2 {
@@ -237,6 +324,15 @@ body.activeModal {
     color: var(--template-color-02);
 }
 
+.modalText .buttons {
+    justify-self: flex-end;
+    align-self: flex-end;
+
+    position: absolute;
+    bottom: 2rem;
+    left: 3rem;
+}
+
 .modalText .cta {
     /* margin-top: auto; */
     width: 3rem;
@@ -247,6 +343,7 @@ body.activeModal {
     color: #fff;
     transition: width 0.5s ease-in-out;
     cursor: pointer;
+    position: relative;
 
 }
 
@@ -276,6 +373,9 @@ body.activeModal {
     transition: opacity .5s ease-in-out;
     width: 100%;
     left: 0;
+    top: 0.8rem;
+    position: absolute;
+
 }
 
 .modalText .cta:hover .buttonText {
@@ -308,13 +408,24 @@ body.activeModal {
 /*------------popup--------*/
 @media (max-width: 768px) {
 
+    .grid {
+        display: flex;
+        flex-direction: column;
+        margin: 0 1rem;
+    }
+
+    .grid .box {
+        width: 100%;
+        height: 30vh;
+    }
+
     .modal,
     .overlay {
         overflow: scroll;
     }
 
     .modal .modalImg {
-        margin: 50px 0 50px 0;
+        margin: 50px 0;
     }
 
     .modalContent {
@@ -324,5 +435,32 @@ body.activeModal {
     .modal .right,
     .modal .left {
         padding: 0;
+    }
+
+    .modalText {
+        position: unset;
+        height: fit-content;
+        margin-bottom: 3rem;
+    }
+
+    .modalText button.closeModal {
+        position: absolute;
+        top: 0.5rem;
+        right: 0rem;
+        width: 3rem;
+        height: 3rem;
+        text-align: center;
+        border-radius: 50%;
+        padding: 0 0;
+        /* font-size: 20px; */
+    }
+
+    .modalText .cta .buttonText {
+        position: unset;
+
+    }
+
+    .modalContent {
+        height: auto;
     }
 }

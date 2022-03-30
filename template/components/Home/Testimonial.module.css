@@ -1,0 +1,218 @@
+/* Utility */
+.container {
+    max-width: 95%;
+    margin: auto;
+}
+
+.heading {
+    margin: 3rem 0;
+}
+
+.heading h4 {
+    font-weight: 100;
+    letter-spacing: 0.2rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--template-color-05);
+}
+
+.heading h2 {
+    font-size: 2rem;
+    color: var(--template-font-color-01);
+}
+
+
+.textCenter {
+    text-align: center;
+}
+
+.d_flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.f_flex {
+    display: flex;
+}
+
+.box_shadow {
+    background: linear-gradient(145deg, var(--template-bg-color-02), var(--template-bg-color-01));
+    box-shadow: 4px 4px 8px var(--template-bg-color-02), -4px -4px 8px var(--template-bg-color-01);
+    border-radius: 10px;
+
+}
+
+.btn_shadow {
+    padding: 1.2rem 1.8rem;
+    border-radius: 0.5rem;
+    transition: 0.3s all ease;
+    cursor: pointer;
+    color: var(--template-font-color-01);
+    transition: 0.5s;
+    opacity: 0.7;
+}
+
+.btn_shadow {
+    background: linear-gradient(145deg, var(--template-bg-color-02), var(--template-bg-color-01));
+    box-shadow: 4px 4px 8px var(--template-bg-color-02), -4px -4px 8px var(--template-bg-color-01);
+}
+
+.btn_shadow:hover {
+    background: var(--template-color-02);
+    color: white;
+    transform: translateY(-10px);
+    opacity: 1;
+}
+
+.mtop {
+    margin-top: 2.5rem;
+}
+
+.primary_color {
+    color: var(--template-color-02);
+}
+
+/* Specific */
+.Testimonial h2 {
+    margin: 1rem 0 0 0;
+}
+
+.Testimonial .left {
+    width: 35%;
+    padding: 2rem;
+    margin: 1.2rem;
+}
+
+.Testimonial .right {
+    width: 65%;
+    padding: 0 0 0 3rem;
+    margin: 0 1.2rem 0 0;
+}
+
+.Testimonial .quote svg {
+    width: 20%;
+    opacity: 0.2;
+    color: var(--template-font-color-01);
+}
+
+.Testimonial .content {
+    padding: 3rem;
+}
+
+.Testimonial .content h3 {
+    color: var(--template-color-02);
+    text-transform: capitalize;
+    font-weight: bold;
+}
+
+.Testimonial .content span {
+    color: var(--template-color-05);
+    font-style: italic;
+    font-weight: 100;
+    font-size: 0.9rem;
+    margin-bottom: 3rem;
+}
+
+.Testimonial .details h4 {
+    color: var(--template-color-05);
+    font-style: italic;
+    font-weight: 100;
+    font-size: 0.8rem;
+}
+
+.Testimonial .slide_button {
+    position: absolute;
+    /* top: 30px;
+    right: 20px; */
+    top: 2rem;
+    right: 6rem;
+    width: 2vw;
+    display: flex;
+    flex-direction: row;
+}
+
+.Testimonial .slide_button .prev_btn,
+.Testimonial .slide_button .next_btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Testimonial .slide_button .prev_btn svg,
+.Testimonial .slide_button .next_btn svg {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    /* background-color: blue; */
+    z-index: 2;
+}
+
+/*-----Testimonial slide-----------*/
+.Testimonial .slide {
+    max-width: 80%;
+    margin: auto;
+    height: 500px;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+}
+
+.article {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all 0.3s linear;
+}
+
+.article.activeSlide {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.article.lastSlide {
+    transform: translateX(-100%);
+}
+
+.article.nextSlide {
+    transform: translateX(100%);
+}
+
+/*-----Testimonial slide-----------*/
+@media (max-width: 768px) {
+    .article {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .Testimonial .left {
+        width: 100%;
+        display: flex;
+        margin: 0;
+        margin-top: 15%;
+    }
+
+    .Testimonial .left img {
+        width: 190px;
+        border-radius: 10px;
+        margin-right: 20px;
+    }
+
+    .Testimonial .right {
+        width: 100%;
+        margin: 0;
+        padding: 0 0 0 0px;
+    }
+
+    .Testimonial .slide {
+        height: 70vh;
+        max-width: 90%;
+    }
+
+    .Testimonial .quote {
+        display: none;
+    }
+}

@@ -52,6 +52,10 @@
 
 
 /* Specific */
+.features .content {
+  background-color: red;
+}
+
 .features .box {
   padding: 1rem;
   border: 0.1rem solid var(--template-bg-color-02);
