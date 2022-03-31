@@ -36,12 +36,17 @@
     padding: 0rem;
     transition: 0.3s all ease;
     cursor: pointer;
-    /* color: var(--template-bg-color-01); */
     transition: 0.5s;
     /* background: linear-gradient(145deg, var(--template-bg-color-03), var(--template-bg-color-01)); */
     background-color: var(--template-bg-color-03);
-    box-shadow: 0.4rem 0.4rem 0.5rem var(var(--template-bg-color-02)), -0.4rem -0.4rem 0.5rem var(--template-bg-color-01);
+    /* box-shadow: 0.4rem 0.4rem 0.5rem var(var(--template-bg-color-02)), -0.4rem -0.4rem 0.5rem var(--template-bg-color-01); */
     border-radius: 0.8rem;
+}
+
+.btn_shadow:hover {
+    transform: translateY(-10px);
+    color: #fff;
+    background-color: var(--template-color-02);
 }
 
 
@@ -67,6 +72,7 @@
 .Portfolio {
     position: relative;
     margin-bottom: 4rem;
+    padding-bottom: 2rem;
 }
 
 .Portfolio .box {
@@ -81,7 +87,7 @@
 }
 
 .Portfolio .img {
-    height: 25vw;
+    height: 20vw;
     overflow: hidden;
     transition: 0.5s;
 }
@@ -177,13 +183,18 @@
 .Portfolio .seeLessContainer {
     position: absolute;
     margin-top: 2rem;
-
     right: 3rem;
     color: var(--template-color-03);
     font-weight: bold;
     text-decoration: underline;
     display: flex;
     flex-direction: row;
+}
+
+.Portfolio .seeLess {
+    color: var(--template-font-color-01);
+    opacity: 0.6;
+
 }
 
 .Portfolio .seeLess,
@@ -208,9 +219,8 @@
 
 .Portfolio .seeLess:hover,
 .Portfolio .seeAll:hover {
-
+    opacity: 1;
     transform: scale(1.1);
-    color: var(--template-color-02);
 }
 
 .Portfolio .seeLess:hover svg,
@@ -457,7 +467,6 @@ body.activeModal {
 
     .modalText .cta .buttonText {
         position: unset;
-
     }
 
     .modalContent {

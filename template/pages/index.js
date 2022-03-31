@@ -30,7 +30,7 @@ export default function Index({ allPosts, preview }) {
         <Hero />
         <Features />
         <Portfolio />
-        <Testimonial />
+        {/* <Testimonial /> */}
         <Blog />
         <Contact />
 

@@ -144,15 +144,14 @@ function Testimonial() {
                     {data.map((value, valueIndex) => {
                         return <Slide key={value.id} {...value} valueIndex={valueIndex} index={index} />
                     })}
-
-                    <div className={styles.slide_button}>
-                        <button className={`${styles.btn_shadow} ${styles.prev_btn}`} onClick={() => setIndex(index - 1)}>
-                            <FontAwesomeIcon icon={faArrowLeft} />
-                        </button>
-                        <button className={`${styles.btn_shadow} ${styles.next_btn}`} onClick={() => setIndex(index + 1)}>
-                            <FontAwesomeIcon icon={faArrowRight} />
-                        </button>
-                    </div>
+                </div>
+                <div className={styles.slide_button}>
+                    <button className={`${styles.btn_shadow} ${styles.prev_btn}`} onClick={() => setIndex(index - 1)}>
+                        <FontAwesomeIcon icon={faArrowLeft} />
+                    </button>
+                    <button className={`${styles.btn_shadow} ${styles.next_btn}`} onClick={() => setIndex(index + 1)}>
+                        <FontAwesomeIcon icon={faArrowRight} />
+                    </button>
                 </div>
             </div>
         </section>

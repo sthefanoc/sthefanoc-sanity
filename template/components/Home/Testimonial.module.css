@@ -2,6 +2,7 @@
 .container {
     max-width: 95%;
     margin: auto;
+    position: relative;
 }
 
 .heading {
@@ -73,6 +74,10 @@
 }
 
 /* Specific */
+.Testimonial {
+    padding-top: 2rem;
+}
+
 .Testimonial h2 {
     margin: 1rem 0 0 0;
 }
@@ -122,10 +127,8 @@
 
 .Testimonial .slide_button {
     position: absolute;
-    /* top: 30px;
-    right: 20px; */
-    top: 2rem;
-    right: 6rem;
+    top: 30%;
+    right: 20%;
     width: 2vw;
     display: flex;
     flex-direction: row;
@@ -152,7 +155,7 @@
 .Testimonial .slide {
     max-width: 80%;
     margin: auto;
-    height: 500px;
+    height: 55vh;
     position: relative;
     display: flex;
     overflow: hidden;
@@ -183,22 +186,61 @@
 
 /*-----Testimonial slide-----------*/
 @media (max-width: 768px) {
+
+    /* General */
+    .left,
+    .right {
+        width: 100%;
+    }
+
+    .d_flex {
+        flex-direction: column;
+    }
+
+    .f_flex {
+        flex-direction: column;
+    }
+
+    .container {
+        height: 100%;
+    }
+
+    .details {
+        margin: 1rem 0;
+    }
+
+    .box_shadow {
+        background: none;
+        box-shadow: none;
+    }
+
+    /* Specific */
     .article {
         flex-direction: column;
         padding: 20px;
     }
 
+    .Testimonial {
+        padding-top: 0;
+    }
+
     .Testimonial .left {
         width: 100%;
+        /* height: 20vh; */
         display: flex;
-        margin: 0;
-        margin-top: 15%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        /* margin: auto; */
+        padding: 0;
     }
 
     .Testimonial .left img {
-        width: 190px;
-        border-radius: 10px;
-        margin-right: 20px;
+        width: 50%;
+        display: block;
+        border-radius: 50%;
+        margin-right: auto;
     }
 
     .Testimonial .right {
@@ -208,11 +250,49 @@
     }
 
     .Testimonial .slide {
-        height: 70vh;
+        height: 80vh;
         max-width: 90%;
     }
 
     .Testimonial .quote {
-        display: none;
+        /* display: none; */
     }
+
+    .Testimonial .slide {
+        /* height: fit-content; */
+        /* height: 100%; */
+        /* position: relative; */
+
+        display: flex;
+        overflow: visible;
+    }
+
+    .article {
+        /* height: auto; */
+        /* height: 100%; */
+        height: max-content;
+        padding: 0;
+    }
+
+    .Testimonial .slide_button {
+        bottom: 0;
+        left: 50%;
+        width: 2vw;
+        height: 2vw;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .Testimonial .slide {
+        /* height: auto; */
+        /* height: max-content; */
+    }
+
+    .Testimonial .content {
+        margin-top: 0.5rem;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
 }
