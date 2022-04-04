@@ -27,6 +27,7 @@
     color: var(--template-font-color-01);
 }
 
+
 .container {
     max-width: 95%;
     margin: auto;
@@ -77,6 +78,7 @@
 
 .Portfolio .box {
     border-radius: 0.5rem;
+    border: 1px solid var(--template-bg-color-02);
     transition: all 0.3s ease-in-out;
 }
 
@@ -109,6 +111,7 @@
 
 .Portfolio .category span {
     color: var(--template-color-05);
+    margin-left: 1rem;
     font-size: 0.8rem;
     letter-spacing: 0.2rem;
     font-weight: 500;

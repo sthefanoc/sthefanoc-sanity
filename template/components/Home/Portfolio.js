@@ -1,4 +1,4 @@
-import { faHeart, faTimes, faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { faHeart, faTimes, faArrowRight, faArrowLeft, faGlobe, faPencilAlt } from '@fortawesome/free-solid-svg-icons'
 import {
     faGithub,
     faLinkedin,
@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styles from './Portfolio.module.css'
 import ReactTooltip from "react-tooltip"
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 
 import { useRouter } from 'next/router'
 import { PortfolioTranslations as en } from '../../locales/en'
@@ -103,6 +104,8 @@ const Portfolio_data = [
 
 const Card = (props) => {
     const [modal, setModal] = useState(false)
+    const { locale, locales } = useRouter();
+    const t = locale === 'pt' ? pt : (locale === 'fr' ? fr : en)
 
     const toggleModal = () => {
         setModal(!modal)
@@ -114,6 +117,20 @@ const Card = (props) => {
             document.body.classList.remove(`${styles.activeModal}`)
         }
     }, [])
+
+    const modalLinks = [{
+        description: t.github,
+        link: props.githubLink,
+        icon: faGithub
+    }, {
+        description: t.live,
+        link: props.liveProjectLink,
+        icon: faGlobe
+    }, {
+        description: t.blog,
+        link: props.blogPost,
+        icon: faPencilAlt
+    },]
 
 
     return (
@@ -147,18 +164,37 @@ const Card = (props) => {
                             <h2>{props.title}</h2>
                             <p>{props.description}</p>
                             <div className={`${styles.f_flex} ${styles.mtop} ${styles.buttons}`}>
-                                <button className={`${styles.cta}`}>
-                                    <FontAwesomeIcon icon={faGithub} />
+                                {modalLinks.map((item, index) => {
+                                    if (item.link && item.description != t.blog) {
+                                        return (
+                                            <a href={item.link} target="_blank" rel="noopener noreferrer" key={index}>
+                                                <button className={`${styles.cta}`}>
+                                                    <FontAwesomeIcon icon={item.icon} />
+                                                    <span className={styles.buttonText}>{item.description}</span>
+                                                </button>
+                                            </a>
+                                        )
+                                    } else if (item.link && item.description == t.blog) {
+                                        return (
+                                            <Link href={item.link} key={index}>
+                                                <button className={`${styles.cta}`}>
+                                                    <FontAwesomeIcon icon={item.icon} />
+                                                    <span className={styles.buttonText}>{item.description}</span>
+                                                </button>
+                                            </Link>
+                                        )
+                                    }
+
+                                })}
+
+                                {/* <button className={`${styles.cta}`}>
+                                    <FontAwesomeIcon icon={faGlobe} />
                                     <span className={styles.buttonText}>Github Repo</span>
                                 </button>
                                 <button className={`${styles.cta}`}>
-                                    <FontAwesomeIcon icon={faGithub} />
+                                    <FontAwesomeIcon icon={faPencilAlt} />
                                     <span className={styles.buttonText}>Github Repo</span>
-                                </button>
-                                <button className={`${styles.cta}`}>
-                                    <FontAwesomeIcon icon={faGithub} />
-                                    <span className={styles.buttonText}>Github Repo</span>
-                                </button>
+                                </button> */}
                             </div>
                             <button className={`${styles.closeModal} ${styles.btn_shadow}`} onClick={toggleModal}>
                                 <FontAwesomeIcon icon={faTimes} />
