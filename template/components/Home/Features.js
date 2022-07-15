@@ -16,7 +16,7 @@ function Features() {
         {
             id: 1,
             image: faCode,
-            title: "Business Stratagy",
+            title: "Business Strategy",
             desc: "I throw myself down among the tall grass by the stream as I lie close to the earth.",
         },
         {

@@ -1,97 +1,182 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import styles from './Blog.module.css'
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
+import { faHeart, faTimes, faArrowRight, faArrowLeft, faGlobe, faPencilAlt } from '@fortawesome/free-solid-svg-icons'
+import {
+    faGithub,
+    faLinkedin,
+    faTwitter,
+    faDev,
+    faMedium,
+    faLinkedinIn,
+} from "@fortawesome/free-brands-svg-icons"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import styles from './Portfolio.module.css'
+import ReactTooltip from "react-tooltip"
+import { useState, useEffect } from 'react'
+import Link from 'next/link'
 
-const BlogApi = [
+import { useRouter } from 'next/router'
+import { PortfolioTranslations as en } from '../../locales/en'
+import { PortfolioTranslations as pt } from '../../locales/pt'
+import { PortfolioTranslations as fr } from '../../locales/fr'
+
+const Portfolio_data = [
     {
         id: 1,
-        title: 'this is a title',
-        slug: 'this-is-a-title',
-        author: 'My name',
-        mainImage: 'https://via.placeholder.com/800x800.png?text=This+is+a+blog+post',
-        categories: ['category 1', 'category 2'],
-        date: '2020-01-01 01:00',
-        excerpt: 'this is a short description',
-        body: 'this is a long description Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus possimus aliquid sed repudiandae cupiditate saepe placeat magni, quisquam ipsum deleniti modi. Odit, repellendus, id debitis dolorem libero possimus maxime a modi aperiam esse consequuntur ut cumque officia dolorum voluptatibus deserunt earum, illo fugit. Voluptatum dolore iure aut ab aliquid sapiente.',
+        title: 'Nice Title',
+        slug: 'nice-title',
+        author: 'SthefanoC',
+        mainImage: 'https://via.placeholder.com/800x800.png?text=Nice+Title',
+        categories: ['Web Design', 'Web Development'],
+        publishedAt: '01/10/2021',
+        excerpt: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo quo sunt nam! Iusto placeat veritatis possimus, dignissimos pariatur doloremque odio excepturi tempore, eum ratione neque, impedit quas aperiam earum. Neque nesciunt unde aliquid iure maxime, labore error, at vitae quis eius deleniti inventore nemo eveniet molestiae accusamus quaerat commodi quibusdam.'
     },
     {
         id: 2,
-        title: 'this is a title',
-        slug: 'this-is-a-title',
-        author: 'My name',
-        mainImage: 'https://via.placeholder.com/800x800.png?text=This+is+a+blog+post',
-        categories: ['category 1', 'category 2'],
-        date: '2020-01-01 01:00',
-        excerpt: 'this is a short description',
-        body: 'this is a long description Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus possimus aliquid sed repudiandae cupiditate saepe placeat magni, quisquam ipsum deleniti modi. Odit, repellendus, id debitis dolorem libero possimus maxime a modi aperiam esse consequuntur ut cumque officia dolorum voluptatibus deserunt earum, illo fugit. Voluptatum dolore iure aut ab aliquid sapiente.',
+        title: 'Nice Title',
+        slug: 'nice-title',
+        author: 'SthefanoC',
+        mainImage: 'https://via.placeholder.com/800x800.png?text=Nice+Title',
+        categories: ['Web Design', 'Web Development'],
+        publishedAt: '01/10/2021',
+        excerpt: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo quo sunt nam! Iusto placeat veritatis possimus, dignissimos pariatur doloremque odio excepturi tempore, eum ratione neque, impedit quas aperiam earum. Neque nesciunt unde aliquid iure maxime, labore error, at vitae quis eius deleniti inventore nemo eveniet molestiae accusamus quaerat commodi quibusdam.'
     },
     {
         id: 3,
-        title: 'this is a title',
-        slug: 'this-is-a-title',
-        author: 'My name',
-        mainImage: 'https://via.placeholder.com/800x800.png?text=This+is+a+blog+post',
-        categories: ['category 1', 'category 2'],
-        date: '2020-01-01 01:00',
-        excerpt: 'this is a short description',
-        body: 'this is a long description Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus possimus aliquid sed repudiandae cupiditate saepe placeat magni, quisquam ipsum deleniti modi. Odit, repellendus, id debitis dolorem libero possimus maxime a modi aperiam esse consequuntur ut cumque officia dolorum voluptatibus deserunt earum, illo fugit. Voluptatum dolore iure aut ab aliquid sapiente.',
+        title: 'Nice Title',
+        slug: 'nice-title',
+        author: 'SthefanoC',
+        mainImage: 'https://via.placeholder.com/800x800.png?text=Nice+Title',
+        categories: ['Web Design', 'Web Development'],
+        publishedAt: '01/10/2021',
+        excerpt: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo quo sunt nam! Iusto placeat veritatis possimus, dignissimos pariatur doloremque odio excepturi tempore, eum ratione neque, impedit quas aperiam earum. Neque nesciunt unde aliquid iure maxime, labore error, at vitae quis eius deleniti inventore nemo eveniet molestiae accusamus quaerat commodi quibusdam.'
+    },
+    {
+        id: 4,
+        title: 'Nice Title',
+        slug: 'nice-title',
+        author: 'SthefanoC',
+        mainImage: 'https://via.placeholder.com/800x800.png?text=Nice+Title',
+        categories: ['Web Design', 'Web Development'],
+        publishedAt: '01/10/2021',
+        excerpt: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo quo sunt nam! Iusto placeat veritatis possimus, dignissimos pariatur doloremque odio excepturi tempore, eum ratione neque, impedit quas aperiam earum. Neque nesciunt unde aliquid iure maxime, labore error, at vitae quis eius deleniti inventore nemo eveniet molestiae accusamus quaerat commodi quibusdam.'
+    },
+    {
+        id: 5,
+        title: 'Nice Title',
+        slug: 'nice-title',
+        author: 'SthefanoC',
+        mainImage: 'https://via.placeholder.com/800x800.png?text=Nice+Title',
+        categories: ['Web Design', 'Web Development'],
+        publishedAt: '01/10/2021',
+        excerpt: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo quo sunt nam! Iusto placeat veritatis possimus, dignissimos pariatur doloremque odio excepturi tempore, eum ratione neque, impedit quas aperiam earum. Neque nesciunt unde aliquid iure maxime, labore error, at vitae quis eius deleniti inventore nemo eveniet molestiae accusamus quaerat commodi quibusdam.'
+    },
+    {
+        id: 6,
+        title: 'Nice Title',
+        slug: 'nice-title',
+        author: 'SthefanoC',
+        mainImage: 'https://via.placeholder.com/800x800.png?text=Nice+Title',
+        categories: ['Web Design', 'Web Development'],
+        publishedAt: '01/10/2021',
+        excerpt: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo quo sunt nam! Iusto placeat veritatis possimus, dignissimos pariatur doloremque odio excepturi tempore, eum ratione neque, impedit quas aperiam earum. Neque nesciunt unde aliquid iure maxime, labore error, at vitae quis eius deleniti inventore nemo eveniet molestiae accusamus quaerat commodi quibusdam.'
     }
 ]
 
 
+
 const Card = (props) => {
     const [modal, setModal] = useState(false)
+    const { locale, locales } = useRouter();
+    const t = locale === 'pt' ? pt : (locale === 'fr' ? fr : en)
 
     const toggleModal = () => {
         setModal(!modal)
     }
     useEffect(() => {
         if (modal) {
-            document.body.classList.add("active-modal")
+            document.body.classList.add(`${styles.activeModal}`)
         } else {
-            document.body.classList.remove("active-modal")
+            document.body.classList.remove(`${styles.activeModal}`)
         }
-    }, [modal])
+    }, [])
+
+    const modalLinks = [{
+        description: t.github,
+        link: props.githubLink,
+        icon: faGithub
+    }, {
+        description: t.live,
+        link: props.liveProjectLink,
+        icon: faGlobe
+    }, {
+        description: t.blog,
+        link: props.blogPost,
+        icon: faPencilAlt
+    },]
+
 
     return (
         <>
-            <div className={`${styles.box} ${styles.btn_shadow}`}>
+            <ReactTooltip place="top" type="dark" effect="float" backgroundColor="#333" delayHide={500} />
+            <div className={`${styles.box} ${styles.btn_shadow} portfolioItem`} onClick={toggleModal} data-tip={props.excerpt}>
                 <div className={styles.img}>
-                    <img src={props.mainImage} alt={props.title_one} onClick={toggleModal} />
+                    <img src={props.image} alt={props.title} />
                 </div>
                 <div className={`${styles.category} ${styles.d_flex}`}>
-                    <span onClick={toggleModal}>{props.date}</span>
+                    <span onClick={toggleModal}>{props.category}</span>
                 </div>
                 <div className={styles.title}>
                     <h2 onClick={toggleModal}>{props.title}</h2>
-                    {/* Link to the post */}
-                    <Link href={`/blog/${props.slug}`}>
+                    <a href='#popup' className={styles.arrow} onClick={toggleModal}>
                         <FontAwesomeIcon icon={faArrowRight} />
-                    </Link>
+                    </a>
                 </div>
             </div>
 
             {/* Popup box */}
             {modal && (
-                <div className={`${styles.modal} ${styles.modalBlog}`}>
+                <div className={styles.modal}>
                     <div onClick={toggleModal} className={styles.overlay}></div>
-                    <div className={styles.modalContent}>
+                    <div className={`${styles.modalContent} ${styles.d_flex}`}>
                         <div className={`${styles.modalImg} ${styles.left}`}>
-                            <img src={props.mainImage} alt='' />
+                            <img src={props.image} alt={props.title} />
                         </div>
                         <div className={`${styles.modalText} ${styles.right}`}>
-                            <span>{props.date}</span>
-                            <h1>{props.title}</h1>
-                            <p>{props.excerpt}</p>
+                            <h4>{props.category}</h4>
+                            <h2>{props.title}</h2>
+                            <p>{props.description}</p>
+                            <div className={`${styles.f_flex} ${styles.mtop} ${styles.buttons}`}>
+                                {modalLinks.map((item, index) => {
+                                    if (item.link && item.description != t.blog) {
+                                        return (
+                                            <a href={item.link} target="_blank" rel="noopener noreferrer" key={index}>
+                                                <button className={`${styles.cta}`}>
+                                                    <FontAwesomeIcon icon={item.icon} />
+                                                    <span className={styles.buttonText}>{item.description}</span>
+                                                </button>
+                                            </a>
+                                        )
+                                    } else if (item.link && item.description == t.blog) {
+                                        return (
+                                            <Link href={item.link} key={index}>
+                                                <button className={`${styles.cta}`}>
+                                                    <FontAwesomeIcon icon={item.icon} />
+                                                    <span className={styles.buttonText}>{item.description}</span>
+                                                </button>
+                                            </Link>
+                                        )
+                                    }
 
-                            <h1>{props.title}</h1>
-                            <p>{props.excerpt}</p>
+                                })}
 
-                            <h1>{props.title}</h1>
-                            <p>{props.excerpt}</p>
-
+                                {/* <button className={`${styles.cta}`}>
+                                    <FontAwesomeIcon icon={faGlobe} />
+                                    <span className={styles.buttonText}>Github Repo</span>
+                                </button>
+                                <button className={`${styles.cta}`}>
+                                    <FontAwesomeIcon icon={faPencilAlt} />
+                                    <span className={styles.buttonText}>Github Repo</span>
+                                </button> */}
+                            </div>
                             <button className={`${styles.closeModal} ${styles.btn_shadow}`} onClick={toggleModal}>
                                 <FontAwesomeIcon icon={faTimes} />
                             </button>
@@ -103,24 +188,87 @@ const Card = (props) => {
     )
 }
 
+function Portfolio() {
+    const [seeAllOpen, setSeeAllOpen] = useState(false)
+    const { locale, locales } = useRouter();
+    const t = locale === 'pt' ? pt : (locale === 'fr' ? fr : en)
 
-function Blog() {
+    const seeMoreItems = () => {
+        setSeeAllOpen(!seeAllOpen)
+        console.log('see more', seeAllOpen)
+        const seeMore = document.querySelector('#seeMore')
+        const seeLess = document.querySelector('#seeLess')
+        // console.log('children', typeof (document.querySelector('#seeMore').children))
+        let items = Array.from(document.querySelectorAll('.portfolioItem'))
+        items.forEach((item, index) => {
+            console.log('lalala', index, item)
+            if (seeAllOpen) {
+                if (index > 2) {
+                    item.style.display = 'unset'
+                    seeMore.style.display = 'none'
+                    seeLess.style.display = 'flex'
+                }
+            } else {
+                if (index > 2) {
+                    item.style.display = 'none'
+                    seeMore.style.display = 'unset'
+                    seeLess.style.display = 'none'
+                }
+            }
+            return
+        })
+
+    }
+
+    useEffect(() => {
+        seeMoreItems()
+    }, [])
+
+
     return (
-        <section className={`${styles.Portfolio} ${styles.Blog}`} id='blog'>
-            <div className={`${styles.container} ${styles.top}`}>
+        <section className={`${styles.Portfolio} ${styles.top}`} id='portfolio'>
+            <div className={styles.container}>
                 <div className={`${styles.heading} ${styles.textCenter}`}>
-                    <h4>VISIT MY BLOG AND KEEP YOUR FEEDBACK</h4>
-                    <h1>My Blog</h1>
+                    <h4>{t.preTitle}</h4>
+                    <h2>{t.title}</h2>
                 </div>
 
-                <div className={`${styles.content} ${styles.grid}`}>
-                    {BlogApi.map((value, index) => {
-                        return <Card key={index} image={value.image} date={value.date} title_one={value.title_one} title_two={value.title_two} title_three={value.title_three} desc_one={value.desc_one} desc_two={value.desc_two} desc_three={value.desc_three} />
+                <div id="portfolioItems" className={`${styles.content} ${styles.grid}`}>
+                    {Portfolio_data.map((value, index) => {
+                        return <Card
+                            key={value.id}
+                            id={value.id}
+                            category={value.category}
+                            categories={value.categories}
+                            totalLike={value.totalLike}
+                            title={value.title}
+                            date={value.date}
+                            description={value.description}
+                            image={value.image}
+                            technologies={value.technologies}
+                            githubLink={value.githubLink}
+                            liveProjectLink={value.liveProjectLink}
+                            blogPost={value.blogPost}
+                        />
                     })}
+                </div>
+                <div id="seeMore" className={styles.seeMore} onClick={seeMoreItems}>
+                    {t.seeMore}
+                    <FontAwesomeIcon icon={faArrowRight} />
+                </div>
+                <div id="seeLess" className={styles.seeLessContainer} style={{ display: "none" }}>
+                    <div className={styles.seeLess} onClick={seeMoreItems}>
+                        {t.seeLess}
+                        <FontAwesomeIcon icon={faArrowLeft} />
+                    </div>
+                    <div className={styles.seeAll}>
+                        {t.seeAll}
+                        <FontAwesomeIcon icon={faArrowRight} />
+                    </div>
                 </div>
             </div>
         </section>
     )
 }
 
-export default Blog
+export default Portfolio

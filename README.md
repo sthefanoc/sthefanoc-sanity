@@ -7,6 +7,7 @@ This is a demo of how to add a simple comment section to blog post using [Next.j
 
 You'll need to create a `.env.local` file to store a few environment variables that Next will use to pull data from the Sanity API.
 
+
 ```js
 SANITY_API_TOKEN="API-TOKEN-FROM MANAGE.SANITY.IO"
 ```

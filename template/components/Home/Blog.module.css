@@ -27,19 +27,10 @@
     color: var(--template-font-color-01);
 }
 
+
 .container {
     max-width: 95%;
     margin: auto;
-}
-
-.top {
-    margin-top: 80px;
-}
-
-.Portfolio {
-    position: relative;
-    margin-bottom: 4rem;
-    padding-bottom: 2rem;
 }
 
 .btn_shadow {
@@ -59,34 +50,26 @@
     background-color: var(--template-color-02);
 }
 
+
+.d_flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.f_flex {
+    display: flex;
+
+}
+
+.mtop {
+    margin-top: 2.5rem;
+}
+
+.top {
+    margin-top: 5rem;
+}
+
 /* Specific */
-
-.modalBlog.modal,
-.modalBlog.overlay {
-    overflow: scroll;
-}
-
-.modalBlog.modal .modalContent {
-    position: relative;
-    top: 10%;
-    left: 0;
-    max-width: 70%;
-    margin: auto;
-    margin-bottom: 10%;
-}
-
-.modalBlog .modalContent .left,
-.modalBlog .modalContent .right {
-    width: 100%;
-    padding: 0;
-    margin-top: 30px;
-}
-
-.title svg {
-    height: 10%;
-    width: 10%;
-}
-
 .Portfolio {
     position: relative;
     margin-bottom: 4rem;
@@ -95,6 +78,7 @@
 
 .Portfolio .box {
     border-radius: 0.5rem;
+    border: 1px solid var(--template-bg-color-02);
     transition: all 0.3s ease-in-out;
 }
 
@@ -125,21 +109,370 @@
     text-transform: uppercase;
 }
 
-/*----------blog_contact--------*/
-
-.blog_contact .left,
-.blog_contact .right {
-    margin: 0 25px 0 0;
+.Portfolio .category span {
+    color: var(--template-color-05);
+    margin-left: 1rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.2rem;
+    font-weight: 500;
 }
 
 
-/*----------blog_contact--------*/
+.Portfolio .arrow svg {
+    position: absolute;
+    height: 2rem;
+    right: 0;
+    top: 0;
+    transform: rotate(-45deg);
+    color: var(--template-color-03);
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.Portfolio .box:hover .arrow svg {
+    transition: all 0.3s ease-in-out;
+    opacity: 1;
+    transform: scale(1, 1);
+}
+
+.Portfolio h2 {
+    margin: 1rem 1rem;
+
+    color: var(--template-font-color-01);
+    transition: all 0.3s ease-in-out;
+}
+
+.Portfolio .box:hover h2 {
+    color: var(--template-color-02);
+}
+
+.Portfolio .box:hover {
+    color: var(--template-font-color-01);
+}
+
+.Portfolio .seeMore {
+    position: absolute;
+    margin-top: 2rem;
+    right: 3rem;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+    color: var(--template-color-03);
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.Portfolio .seeMore svg {
+    display: block;
+    height: 1.2rem;
+    margin-left: 0.3rem;
+    margin-top: 0.2rem;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    transform: rotate(-45deg)
+}
+
+.Portfolio .seeMore:hover {
+
+    transform: scale(1.2);
+    color: var(--template-color-02);
+}
+
+.Portfolio .seeMore:hover svg {
+    opacity: 1;
+    transform: rotate(0deg);
+
+}
+
+.Portfolio .seeLessContainer {
+    position: absolute;
+    margin-top: 2rem;
+    right: 3rem;
+    color: var(--template-color-03);
+    font-weight: bold;
+    text-decoration: underline;
+    display: flex;
+    flex-direction: row;
+}
+
+.Portfolio .seeLess {
+    color: var(--template-font-color-01);
+    opacity: 0.6;
+
+}
+
+.Portfolio .seeLess,
+.Portfolio .seeAll {
+
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+    margin-left: 1rem;
+
+}
+
+.Portfolio .seeLess svg,
+.Portfolio .seeAll svg {
+    display: block;
+    height: 1.2rem;
+    margin-left: 0.3rem;
+    margin-top: 0.2rem;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    transform: rotate(-45deg)
+}
+
+.Portfolio .seeLess:hover,
+.Portfolio .seeAll:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.Portfolio .seeLess:hover svg,
+.Portfolio .seeAll:hover svg {
+    opacity: 1;
+    transform: rotate(0deg);
+
+}
+
+/*------------popup--------*/
+body.activeModal {
+    overflow-y: hidden;
+}
+
+.btnModal {
+    padding: 10px 20px;
+    display: block;
+    margin: 100px auto 0;
+    font-size: 18px;
+}
+
+.modal,
+.overlay {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+    z-index: 9999;
+}
+
+.overlay {
+    background-color: #ecf0f3;
+}
+
+.modalContent {
+    position: absolute;
+    top: 12%;
+    left: 8%;
+    height: 80vh;
+    line-height: 1.4;
+    background: var(--template-bg-color-03);
+    padding: 1rem 2rem;
+    border-radius: 0.3rem;
+    max-width: 85%;
+    min-width: 60%;
+    z-index: 9999;
+    box-shadow: 0.4rem 0.4rem 0.5rem var(--template-bg-color-02), -0.4rem -0.4rem 0.5rem var(--template-bg-color-01);
+    padding: 2rem;
+    border-radius: 0.8rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.modalImg {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+
+    /* overflow: hidden; */
+}
+
+.modalImg img {
+
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+
+}
+
+.modalText {
+    flex: 3;
+    padding: 0 6rem 0 3rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.modalText h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--template-color-03);
+}
+
+.modalText h4 {
+    font-weight: 100;
+    letter-spacing: 0.2rem;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--template-color-05);
+}
+
+.modalText button {
+    /* padding: 0.5rem 1rem; */
+}
+
+.modalText p {
+    font-size: 1rem;
+    margin-bottom: 1.3rem;
+    line-height: 1.8rem;
+}
+
+.modalText button {
+    margin-right: 1rem;
+    vertical-align: center;
+    color: var(--template-color-02);
+}
+
+.modalText .buttons {
+    justify-self: flex-end;
+    align-self: flex-end;
+
+    position: absolute;
+    bottom: 2rem;
+    left: 3rem;
+}
+
+.modalText .cta {
+    /* margin-top: auto; */
+    width: 3rem;
+    height: 3rem;
+    border-radius: 3rem;
+    border: 2px solid var(--template-color-02);
+    background-color: var(--template-color-02);
+    color: #fff;
+    transition: width 0.5s ease-in-out;
+    cursor: pointer;
+    position: relative;
+
+}
+
+.modalText .cta:hover {
+    width: 12rem;
+    transition: width 0.7s;
+    font-weight: bold;
+
+}
+
+.modalText .cta svg {
+    opacity: 1;
+    transition: opacity 0.2s;
+    height: 60%;
+    margin-top: 0.5rem;
+
+}
+
+.modalText .cta:hover svg {
+    opacity: 0;
+    transition: opacity 0.7s;
+
+}
+
+.modalText .cta .buttonText {
+    opacity: 0;
+    transition: opacity .5s ease-in-out;
+    width: 100%;
+    left: 0;
+    top: 0.8rem;
+    position: absolute;
+
+}
+
+.modalText .cta:hover .buttonText {
+    opacity: 1;
+    transition: opacity 0.5s;
+
+}
+
+.modalText button svg {
+    /* margin-left: 10px; */
+    height: 50%;
+}
+
+.modalText button.closeModal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 3rem;
+    height: 3rem;
+    text-align: center;
+    border-radius: 50%;
+    padding: 0 0;
+    /* font-size: 20px; */
+}
+
+.modalText button.closeModal svg {
+    margin: 0;
+}
+
+/*------------popup--------*/
 @media (max-width: 768px) {
-    .modalBlog.modal .modalContent {
-        max-width: 90%;
+
+    .grid {
+        display: flex;
+        flex-direction: column;
+        margin: 0 1rem;
     }
 
-    .modalBlog.modal .modalContent {
-        margin-bottom: 20%;
+    .grid .box {
+        width: 100%;
+        height: 30vh;
+    }
+
+    .modal,
+    .overlay {
+        overflow: scroll;
+    }
+
+    .modal .modalImg {
+        margin: 50px 0;
+    }
+
+    .modalContent {
+        flex-direction: column;
+    }
+
+    .modal .right,
+    .modal .left {
+        padding: 0;
+    }
+
+    .modalText {
+        position: unset;
+        height: fit-content;
+        margin-bottom: 3rem;
+    }
+
+    .modalText button.closeModal {
+        position: absolute;
+        top: 0.5rem;
+        right: 0rem;
+        width: 3rem;
+        height: 3rem;
+        text-align: center;
+        border-radius: 50%;
+        padding: 0 0;
+        /* font-size: 20px; */
+    }
+
+    .modalText .cta .buttonText {
+        position: unset;
+    }
+
+    .modalContent {
+        height: auto;
     }
 }
