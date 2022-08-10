@@ -14,3 +14,12 @@ export {
     default as PortfolioTranslations
 }
 from './Portfolio.js'
+export {
+    default as TestimonialTranslations
+} from './Testimonial.js'
+export {
+    default as BlogTranslations
+} from './Blog.js'
+export {
+    default as ContactTranslations
+} from './Contact.js'

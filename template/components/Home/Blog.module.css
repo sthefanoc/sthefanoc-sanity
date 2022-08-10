@@ -70,46 +70,46 @@
 }
 
 /* Specific */
-.Portfolio {
+.Blog {
     position: relative;
     margin-bottom: 4rem;
     padding-bottom: 2rem;
 }
 
-.Portfolio .box {
+.Blog .box {
     border-radius: 0.5rem;
     border: 1px solid var(--template-bg-color-02);
     transition: all 0.3s ease-in-out;
 }
 
-.Portfolio .box:hover {
+.Blog .box:hover {
     background: none;
     /* border: 1px solid var(--template-bg-color-02); */
     transform: translateY(-0);
 }
 
-.Portfolio .img {
+.Blog .img {
     height: 20vw;
     overflow: hidden;
     transition: 0.5s;
 }
 
-.Portfolio img {
+.Blog img {
     width: 100%;
     border-radius: 10px;
     transition: 0.5s;
 }
 
-.Portfolio .box .img:hover img {
+.Blog .box .img:hover img {
     transform: scale(1.2);
 }
 
-.Portfolio .category {
+.Blog .category {
     margin: 20px 0 30px 0;
     text-transform: uppercase;
 }
 
-.Portfolio .category span {
+.Blog .category span {
     color: var(--template-color-05);
     margin-left: 1rem;
     font-size: 0.8rem;
@@ -118,7 +118,7 @@
 }
 
 
-.Portfolio .arrow svg {
+.Blog .arrow svg {
     position: absolute;
     height: 2rem;
     right: 0;
@@ -129,28 +129,28 @@
     transition: 0.5s;
 }
 
-.Portfolio .box:hover .arrow svg {
+.Blog .box:hover .arrow svg {
     transition: all 0.3s ease-in-out;
     opacity: 1;
     transform: scale(1, 1);
 }
 
-.Portfolio h2 {
+.Blog h2 {
     margin: 1rem 1rem;
 
     color: var(--template-font-color-01);
     transition: all 0.3s ease-in-out;
 }
 
-.Portfolio .box:hover h2 {
+.Blog .box:hover h2 {
     color: var(--template-color-02);
 }
 
-.Portfolio .box:hover {
+.Blog .box:hover {
     color: var(--template-font-color-01);
 }
 
-.Portfolio .seeMore {
+.Blog .seeMore {
     position: absolute;
     margin-top: 2rem;
     right: 3rem;
@@ -161,7 +161,7 @@
     text-decoration: underline;
 }
 
-.Portfolio .seeMore svg {
+.Blog .seeMore svg {
     display: block;
     height: 1.2rem;
     margin-left: 0.3rem;
@@ -171,19 +171,19 @@
     transform: rotate(-45deg)
 }
 
-.Portfolio .seeMore:hover {
+.Blog .seeMore:hover {
 
     transform: scale(1.2);
     color: var(--template-color-02);
 }
 
-.Portfolio .seeMore:hover svg {
+.Blog .seeMore:hover svg {
     opacity: 1;
     transform: rotate(0deg);
 
 }
 
-.Portfolio .seeLessContainer {
+.Blog .seeLessContainer {
     position: absolute;
     margin-top: 2rem;
     right: 3rem;
@@ -194,14 +194,14 @@
     flex-direction: row;
 }
 
-.Portfolio .seeLess {
+.Blog .seeLess {
     color: var(--template-font-color-01);
     opacity: 0.6;
 
 }
 
-.Portfolio .seeLess,
-.Portfolio .seeAll {
+.Blog .seeLess,
+.Blog .seeAll {
 
     transition: all 0.5s ease-in-out;
     cursor: pointer;
@@ -209,8 +209,8 @@
 
 }
 
-.Portfolio .seeLess svg,
-.Portfolio .seeAll svg {
+.Blog .seeLess svg,
+.Blog .seeAll svg {
     display: block;
     height: 1.2rem;
     margin-left: 0.3rem;
@@ -220,14 +220,14 @@
     transform: rotate(-45deg)
 }
 
-.Portfolio .seeLess:hover,
-.Portfolio .seeAll:hover {
+.Blog .seeLess:hover,
+.Blog .seeAll:hover {
     opacity: 1;
     transform: scale(1.1);
 }
 
-.Portfolio .seeLess:hover svg,
-.Portfolio .seeAll:hover svg {
+.Blog .seeLess:hover svg,
+.Blog .seeAll:hover svg {
     opacity: 1;
     transform: rotate(0deg);
 

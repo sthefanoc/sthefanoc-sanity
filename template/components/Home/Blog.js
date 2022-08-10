@@ -8,23 +8,23 @@ import {
     faLinkedinIn,
 } from "@fortawesome/free-brands-svg-icons"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import styles from './Portfolio.module.css'
+import styles from './Blog.module.css'
 import ReactTooltip from "react-tooltip"
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 
 import { useRouter } from 'next/router'
-import { PortfolioTranslations as en } from '../../locales/en'
-import { PortfolioTranslations as pt } from '../../locales/pt'
-import { PortfolioTranslations as fr } from '../../locales/fr'
+import { BlogTranslations as en } from '../../locales/en'
+import { BlogTranslations as pt } from '../../locales/pt'
+import { BlogTranslations as fr } from '../../locales/fr'
 
-const Portfolio_data = [
+const Blog_data = [
     {
         id: 1,
         title: 'Nice Title',
         slug: 'nice-title',
         author: 'SthefanoC',
-        mainImage: 'https://via.placeholder.com/800x800.png?text=Nice+Title',
+        mainImage: 'https://via.placeholder.com/800x800.png?text=An+Incredible+Blog+Post',
         categories: ['Web Design', 'Web Development'],
         publishedAt: '01/10/2021',
         excerpt: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo quo sunt nam! Iusto placeat veritatis possimus, dignissimos pariatur doloremque odio excepturi tempore, eum ratione neque, impedit quas aperiam earum. Neque nesciunt unde aliquid iure maxime, labore error, at vitae quis eius deleniti inventore nemo eveniet molestiae accusamus quaerat commodi quibusdam.'
@@ -34,7 +34,7 @@ const Portfolio_data = [
         title: 'Nice Title',
         slug: 'nice-title',
         author: 'SthefanoC',
-        mainImage: 'https://via.placeholder.com/800x800.png?text=Nice+Title',
+        mainImage: 'https://via.placeholder.com/800x800.png?text=An+Incredible+Blog+Post',
         categories: ['Web Design', 'Web Development'],
         publishedAt: '01/10/2021',
         excerpt: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo quo sunt nam! Iusto placeat veritatis possimus, dignissimos pariatur doloremque odio excepturi tempore, eum ratione neque, impedit quas aperiam earum. Neque nesciunt unde aliquid iure maxime, labore error, at vitae quis eius deleniti inventore nemo eveniet molestiae accusamus quaerat commodi quibusdam.'
@@ -44,7 +44,7 @@ const Portfolio_data = [
         title: 'Nice Title',
         slug: 'nice-title',
         author: 'SthefanoC',
-        mainImage: 'https://via.placeholder.com/800x800.png?text=Nice+Title',
+        mainImage: 'https://via.placeholder.com/800x800.png?text=An+Incredible+Blog+Post',
         categories: ['Web Design', 'Web Development'],
         publishedAt: '01/10/2021',
         excerpt: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo quo sunt nam! Iusto placeat veritatis possimus, dignissimos pariatur doloremque odio excepturi tempore, eum ratione neque, impedit quas aperiam earum. Neque nesciunt unde aliquid iure maxime, labore error, at vitae quis eius deleniti inventore nemo eveniet molestiae accusamus quaerat commodi quibusdam.'
@@ -54,7 +54,7 @@ const Portfolio_data = [
         title: 'Nice Title',
         slug: 'nice-title',
         author: 'SthefanoC',
-        mainImage: 'https://via.placeholder.com/800x800.png?text=Nice+Title',
+        mainImage: 'https://via.placeholder.com/800x800.png?text=An+Incredible+Blog+Post',
         categories: ['Web Design', 'Web Development'],
         publishedAt: '01/10/2021',
         excerpt: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo quo sunt nam! Iusto placeat veritatis possimus, dignissimos pariatur doloremque odio excepturi tempore, eum ratione neque, impedit quas aperiam earum. Neque nesciunt unde aliquid iure maxime, labore error, at vitae quis eius deleniti inventore nemo eveniet molestiae accusamus quaerat commodi quibusdam.'
@@ -64,7 +64,7 @@ const Portfolio_data = [
         title: 'Nice Title',
         slug: 'nice-title',
         author: 'SthefanoC',
-        mainImage: 'https://via.placeholder.com/800x800.png?text=Nice+Title',
+        mainImage: 'https://via.placeholder.com/800x800.png?text=An+Incredible+Blog+Post',
         categories: ['Web Design', 'Web Development'],
         publishedAt: '01/10/2021',
         excerpt: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo quo sunt nam! Iusto placeat veritatis possimus, dignissimos pariatur doloremque odio excepturi tempore, eum ratione neque, impedit quas aperiam earum. Neque nesciunt unde aliquid iure maxime, labore error, at vitae quis eius deleniti inventore nemo eveniet molestiae accusamus quaerat commodi quibusdam.'
@@ -74,7 +74,7 @@ const Portfolio_data = [
         title: 'Nice Title',
         slug: 'nice-title',
         author: 'SthefanoC',
-        mainImage: 'https://via.placeholder.com/800x800.png?text=Nice+Title',
+        mainImage: 'https://via.placeholder.com/800x800.png?text=An+Incredible+Blog+Post',
         categories: ['Web Design', 'Web Development'],
         publishedAt: '01/10/2021',
         excerpt: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo quo sunt nam! Iusto placeat veritatis possimus, dignissimos pariatur doloremque odio excepturi tempore, eum ratione neque, impedit quas aperiam earum. Neque nesciunt unde aliquid iure maxime, labore error, at vitae quis eius deleniti inventore nemo eveniet molestiae accusamus quaerat commodi quibusdam.'
@@ -117,9 +117,9 @@ const Card = (props) => {
     return (
         <>
             <ReactTooltip place="top" type="dark" effect="float" backgroundColor="#333" delayHide={500} />
-            <div className={`${styles.box} ${styles.btn_shadow} portfolioItem`} onClick={toggleModal} data-tip={props.excerpt}>
+            <div className={`${styles.box} ${styles.btn_shadow} blogItem`} onClick={toggleModal} data-tip={props.excerpt}>
                 <div className={styles.img}>
-                    <img src={props.image} alt={props.title} />
+                    <img src={props.mainImage} alt={props.title} />
                 </div>
                 <div className={`${styles.category} ${styles.d_flex}`}>
                     <span onClick={toggleModal}>{props.category}</span>
@@ -138,45 +138,20 @@ const Card = (props) => {
                     <div onClick={toggleModal} className={styles.overlay}></div>
                     <div className={`${styles.modalContent} ${styles.d_flex}`}>
                         <div className={`${styles.modalImg} ${styles.left}`}>
-                            <img src={props.image} alt={props.title} />
+                            <img src={props.mainImage} alt={props.title} />
                         </div>
                         <div className={`${styles.modalText} ${styles.right}`}>
                             <h4>{props.category}</h4>
                             <h2>{props.title}</h2>
-                            <p>{props.description}</p>
-                            <div className={`${styles.f_flex} ${styles.mtop} ${styles.buttons}`}>
-                                {modalLinks.map((item, index) => {
-                                    if (item.link && item.description != t.blog) {
-                                        return (
-                                            <a href={item.link} target="_blank" rel="noopener noreferrer" key={index}>
-                                                <button className={`${styles.cta}`}>
-                                                    <FontAwesomeIcon icon={item.icon} />
-                                                    <span className={styles.buttonText}>{item.description}</span>
-                                                </button>
-                                            </a>
-                                        )
-                                    } else if (item.link && item.description == t.blog) {
-                                        return (
-                                            <Link href={item.link} key={index}>
-                                                <button className={`${styles.cta}`}>
-                                                    <FontAwesomeIcon icon={item.icon} />
-                                                    <span className={styles.buttonText}>{item.description}</span>
-                                                </button>
-                                            </Link>
-                                        )
-                                    }
-
-                                })}
-
-                                {/* <button className={`${styles.cta}`}>
-                                    <FontAwesomeIcon icon={faGlobe} />
-                                    <span className={styles.buttonText}>Github Repo</span>
-                                </button>
-                                <button className={`${styles.cta}`}>
-                                    <FontAwesomeIcon icon={faPencilAlt} />
-                                    <span className={styles.buttonText}>Github Repo</span>
-                                </button> */}
-                            </div>
+                            
+                            <p>{props.title}</p>
+                            <p>{props.slug}</p>
+                            <p>{props.author}</p>
+                            <p>{props.mainImage}</p>
+                            <p>{props.categories}</p>
+                            <p>{props.publishedAt}</p>
+                            <p>{props.excerpt}</p>
+                            
                             <button className={`${styles.closeModal} ${styles.btn_shadow}`} onClick={toggleModal}>
                                 <FontAwesomeIcon icon={faTimes} />
                             </button>
@@ -188,7 +163,7 @@ const Card = (props) => {
     )
 }
 
-function Portfolio() {
+function Blog() {
     const [seeAllOpen, setSeeAllOpen] = useState(false)
     const { locale, locales } = useRouter();
     const t = locale === 'pt' ? pt : (locale === 'fr' ? fr : en)
@@ -199,7 +174,7 @@ function Portfolio() {
         const seeMore = document.querySelector('#seeMore')
         const seeLess = document.querySelector('#seeLess')
         // console.log('children', typeof (document.querySelector('#seeMore').children))
-        let items = Array.from(document.querySelectorAll('.portfolioItem'))
+        let items = Array.from(document.querySelectorAll('.blogItem'))
         items.forEach((item, index) => {
             console.log('lalala', index, item)
             if (seeAllOpen) {
@@ -226,29 +201,24 @@ function Portfolio() {
 
 
     return (
-        <section className={`${styles.Portfolio} ${styles.top}`} id='portfolio'>
+        <section className={`${styles.Blog} ${styles.top}`} id='blog'>
             <div className={styles.container}>
                 <div className={`${styles.heading} ${styles.textCenter}`}>
                     <h4>{t.preTitle}</h4>
                     <h2>{t.title}</h2>
                 </div>
 
-                <div id="portfolioItems" className={`${styles.content} ${styles.grid}`}>
-                    {Portfolio_data.map((value, index) => {
+                <div id="blogItems" className={`${styles.content} ${styles.grid}`}>
+                    {Blog_data.map((value, index) => {
                         return <Card
                             key={value.id}
-                            id={value.id}
-                            category={value.category}
-                            categories={value.categories}
-                            totalLike={value.totalLike}
                             title={value.title}
-                            date={value.date}
-                            description={value.description}
-                            image={value.image}
-                            technologies={value.technologies}
-                            githubLink={value.githubLink}
-                            liveProjectLink={value.liveProjectLink}
-                            blogPost={value.blogPost}
+                            slug={value.slug}
+                            author={value.author}
+                            mainImage={value.mainImage}
+                            categories={value.categories}
+                            publishedAt={value.publishedAt}
+                            excerpt={value.excerpt}
                         />
                     })}
                 </div>
@@ -271,4 +241,4 @@ function Portfolio() {
     )
 }
 
-export default Portfolio
+export default Blog
